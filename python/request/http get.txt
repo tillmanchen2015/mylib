@@ -1,0 +1,4 @@
+import requests
+r=request.get('http://www.douban.com')
+r.status_code
+r.text

@@ -1,0 +1,3 @@
+dv
+dv /V --- can show local var address,then use dt
+dv /V varName

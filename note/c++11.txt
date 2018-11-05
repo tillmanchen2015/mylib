@@ -1,0 +1,22 @@
+c++11
+std async 类似于std thread，不同点在于async可以返回一个future对象。future可以等待至结果产生，也可以不等待结果。相当于省略了一个条件变量，不仅仅一个条件变量。异步产生的异常会被存储在future中，调用get重新触发异常。
+std chrono system_clock是当前系统的真实时间，但是却不是匀速的。对于超时计算必须需要匀速时钟，因此需要steady_clock
+std current exception std copy exception&
+条件变量超时等待推荐用时间点而非时间段，也就是wait_until而非wait_for
+std list splice , std partition
+std atomic_flag 自旋锁
+原子类型不能拷贝构造。但是可以从基本类型进行复制。
+元组 类似python std::tuple std::tie
+decltype() 类型推导。类似auto
+6获得现在时间的一种方法 std::time_t now = std::time(nullptr); data = std::ctime(&now);
+/读取字符串 char request[max_length];
+    std::cin.getline(request, max_length);
+    size_t request_length = std::strlen(request);
+使用enable_shared_from_this安全的从类内部穿出智能指针
+右值引用: 解决调用哪个构造函数的问题。有些时候，比如函数返回值、参数应该使用右值引用。对于临时值应该只做浅拷贝，不做深拷贝。
+如果一个左值也想调用浅拷贝而不是深拷贝，怎么办？使用std::move。stl基本容器都实现了移动语义。
+右值引用符号T&&可能是右值也可能是左值！依赖于上下文！
+元编程: 其实就是模板。利用模板进行编译期的编程。可以做一些代码级别的改动。比如给某个类型添加const。元函数的返回值不用return，而是::type和::value. template typename struct typedef ::type ::value
+向下转型和交叉转型: boost提供conversion来帮助区分downcast和crosscast。
+插入迭代器和流迭代器:back_inserter和ostream_iterator，配合std::copy，简化集合操作
+std::future有三种状态: ready deferred timeout，有三种获取方式 get wait waitfor 注意future对超时的支持。异步操作总是可能超时。

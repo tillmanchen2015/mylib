@@ -1,0 +1,17 @@
+Advanced Configuration(Optional) -> Exceptions :
+
+Pay attentiont to several useful options:
+1. Access Violation.
+2. Array Bounds exceeded. 
+3. Integer Division By Zero.
+4. Stack Overflow.
+5. Module Not Found.
+
+Set Action type of Full User Dump for these exception to debug.
+
+Advanced Configuration(Optional) -> Events:
+1. Thread Creation
+2. Thread Exit
+3. Module Load
+4. Module Unload
+

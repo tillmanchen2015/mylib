@@ -1,0 +1,10 @@
+scoped_ptr: similiar with unique_ptr
+movable but not copyable
+//     scoped_ptr<Foo> ptr(new Foo("yay"));  // ptr manages Foo("yay").
+//     TakesOwnership(std::move(ptr));       // ptr no longer owns Foo("yay").
+//     scoped_ptr<Foo> ptr2 = CreateFoo();   // ptr2 owns the return Foo.
+//     scoped_ptr<Foo> ptr3 =                // ptr3 now owns what was in ptr2.
+//         PassThru(std::move(ptr2));        // ptr2 is correspondingly nullptr.
+
+scoped_refptr<T>: similiar with shared_ptr
+T must herit from RefCounted or RefCountedThreadSafe

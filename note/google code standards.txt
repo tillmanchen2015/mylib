@@ -1,0 +1,138 @@
+命名约定
+
+类型命名（Type Names）
+类型命名每个单词以大写字母开头，不包含下划线：MyExcitingClass、MyExcitingEnum。
+所有类型命名——类、结构体、类型定义（typedef）、枚举——使用相同约定，例如：
+
+// classes and structs
+class UrlTable { ...
+class UrlTableTester { ...
+struct UrlTableProperties { ...
+// typedefs
+typedef hash_map<UrlTableProperties *, string> PropertiesMap;
+// enums
+enum UrlTableErrors { ...
+
+ 变量命名（Variable Names）
+变量名一律小写，单词间以下划线相连，类的成员变量以下划线结尾，如
+myexciting_local_variable、my_exciting_member_variable。
+普通变量命名：
+举例：
+
+string table_name; // OK - uses underscore.
+string tablename; // OK - all lowercase.
+string tableName; // Bad - mixed case.
+
+类数据成员：
+结构体的数据成员可以和普通变量一样，不用像类那样接下划线：
+
+struct UrlTableProperties {
+string name;
+int num_entries;
+}
+
+全局变量：
+对全局变量没有特别要求，少用就好，可以以 g_或其他易与局部变量区分的标志为前缀。
+
+常量命名（Constant Names）
+在名称前加 k：kDaysInAWeek。
+所有编译时常量（无论是局部的、全局的还是类中的）和其他变量保持些许区别，k 后接大写字母开头的单词：
+
+const int kDaysInAWeek = 7;
+
+函数命名（Function Names）
+普通函数（regular functions，译者注，这里与访问函数等特殊函数相对）大小写混合，存取函数（accessors and mutators）则要求与变量名匹配：MyExcitingFunction()、MyExcitingMethod()、my_exciting_member_variable()、 set_my_exciting_member_variable()。
+
+枚举命名（Enumerator Names）
+枚举值应全部大写，单词间以下划线相连：MY_EXCITING_ENUM_VALUE。
+枚举名称属于类型，因此大小写混合：UrlTableErrors。
+
+enum UrlTableErrors {
+OK = 0,
+ERROR_OUT_OF_MEMORY,
+ERROR_MALFORMED_INPUT,
+};
+
+宏命名（Macro Names）
+你并不打算使用宏，对吧？如果使用，像这样：MY_MACRO_THAT_SCARES_SMALL_CHILDREN。
+参考第四篇预处理宏，通常是不使用宏的，如果绝对要用，其命名像枚举命名一样全部大写 、
+使用下划线：
+
+#define ROUND(x) ...
+#define PI_ROUNDED 3.0
+MY_EXCITING_ENUM_VALUE
+
+ 函数声明与定义（Function Declarations and Definitions）
+返回类型和函数名在同一行，合适的话，参数也放在同一行。
+函数看上去像这样：
+
+ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
+    DoSomething();
+    ...
+}
+如果同一行文本较多，容不下所有参数：
+
+ReturnType ClassName::ReallyLongFunctionName(Type par_name1,
+                                             Type par_name2,
+                                             Type par_name3) {
+    DoSomething();
+    ...
+}
+甚至连第一个参数都放不下：
+
+ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
+    Type par_name1, // 4 space indent
+    Type par_name2,
+    Type par_name3) {
+    DoSomething(); // 4 space indent
+...
+}
+注意以下几点：
+1) 返回值总是和函数名在同一行；
+2) 左圆括号（open parenthesis）总是和函数名在同一行；
+3) 函数名和左圆括号间没有空格；
+4) 圆括号与参数间没有空格；
+5) 左大括号（open curly brace）总在最后一个参数同一行的末尾处；
+6) 右大括号（close curly brace）总是单独位于函数最后一行；
+7) 右圆括号（close parenthesis）和左大括号间总是有一个空格；
+8) 函数声明和实现处的所有形参名称必须保持一致；
+9) 所有形参应尽可能对齐；
+10) 缺省缩进为 2 个空格；
+11) 独立封装的参数保持 4 个空格的缩进。
+
+条件语句（Conditionals）
+更提倡不在圆括号中添加空格，关键字 else 另起一行。
+对基本条件语句有两种可以接受的格式，一种在圆括号和条件之间有空格，一种没有。
+最常见的是没有空格的格式，那种都可以，还是一致性为主。如果你是在修改一个文件，参考当前已有格式；如果是写新的代码，参考目录下或项目中其他文件的格式，还在徘徊的话 ，就不要加空格了。
+
+if (condition) { // no spaces inside parentheses
+... // 4 space indent.
+} else { // The else goes on the same line as the closing brace.
+...
+}
+
+注意所有情况下 if 和左圆括号间有个空格，右圆括号和左大括号（如果使用的话）间也要
+有个空格：
+
+if(condition) // Bad - space missing after IF.
+if (condition){ // Bad - space missing before {.
+if(condition){ // Doubly bad.
+if (condition) { // Good - proper space after IF and before {.
+
+switch 语句可以使用大括号分块；空循环体应使用{}或 continue。
+switch 语句中的 case 块可以使用大括号也可以不用，取决于你的喜好，使用时要依下文所述。
+如果有不满足 case 枚举条件的值，要总是包含一个 default（如果有输入值没有 case 去处理，编译器将报警）。如果 default 永不会执行，可以简单的使用 assert：
+
+switch (var) {
+case 0: { // 0 space indent
+    ... // 4 space indent
+    break;
+}
+case 1: {
+    ...
+    break;
+}
+default: {
+    assert(false);
+}
+}

@@ -1,0 +1,6 @@
+diskpart
+list disk
+list volume
+select disk = 0
+select volume = 0
+assign letter = x

@@ -1,0 +1,3 @@
+!peb
+dS srv!srvComputername
+!envvar computername

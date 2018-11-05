@@ -1,0 +1,2 @@
+chmod 777 exe
+chmod -R 777 dir

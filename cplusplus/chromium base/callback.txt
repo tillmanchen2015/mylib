@@ -1,0 +1,40 @@
+A callback with no parameters or no unbound parameters is called a
+// Closure (base::Callback<void()> and base::Closure are the same thing).
+
+MyClass* myclass = new MyClass;
+base::Bind(&MyClass::Foo, base::Owned(myclass));
+//   The object will be deleted when the callback is destroyed, even if it's
+//   not run (like if you post a task during shutdown). Potentially useful for
+//   "fire and forget" cases.
+
+// PASSING PARAMETERS AS A scoped_refptr
+//
+//   void TakesOneRef(scoped_refptr<Foo> arg) {}
+//   scoped_refptr<Foo> f(new Foo)
+//   base::Closure cb = base::Bind(&TakesOneRef, f);
+//
+//   This should "just work." The closure will take a reference as long as it
+//   is alive, and another reference will be taken for the called function.
+
+
+//   Sometimes you want to call a function that returns a value in a callback
+//   that doesn't expect a return value.
+//
+//   int DoSomething(int arg) { cout << arg << endl; }
+//   base::Callback<void(int)> cb =
+//       base::Bind(base::IgnoreResult(&DoSomething));
+
+//   Const references are *copied* unless ConstRef is used. Example:
+//
+//   void foo(const int& arg) { printf("%d %p\n", arg, &arg); }
+//   int n = 1;
+//   base::Closure has_copy = base::Bind(&foo, n);
+//   base::Closure has_ref = base::Bind(&foo, base::ConstRef(n));
+//   n = 2;
+//   foo(n);                        // Prints "2 0xaaaaaaaaaaaa"
+//   has_copy.Run();                // Prints "1 0xbbbbbbbbbbbb"
+//   has_ref.Run();                 // Prints "2 0xaaaaaaaaaaaa"
+//
+//   Normally parameters are copied in the closure. DANGER: ConstRef stores a
+//   const reference instead, referencing the original parameter. This means
+//   that you must ensure the object outlives the callback!

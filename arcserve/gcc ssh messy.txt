@@ -1,0 +1,3 @@
+gcc compile messy code:
+echo LANG=C >> ~/.bashrc  
+source ~/.bashrc  

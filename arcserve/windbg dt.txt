@@ -1,0 +1,17 @@
+dt pointer
+dt structure
+dt -r structure
+dt address structure
+dt -r address structure
+dt address structure substructure
+dt address structure substructer.
+dt address structure substructer..
+dt address varName
+dt address varName subVarName
+dt address varname subVarName.
+dt address varname subVarName..
+
+dd address---show memory as dword
+du address---show memory as unicode
+da address---show memory as ascii
+dds address---show function

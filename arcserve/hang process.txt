@@ -1,0 +1,8 @@
+	std::ifstream file("c:\\hang.flag", std::ios::in);
+	if (!file.is_open())
+	{
+		while(true)
+		{
+			Sleep(1000);
+		}
+	}

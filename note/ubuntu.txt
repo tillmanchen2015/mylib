@@ -1,0 +1,47 @@
+ubuntu
+注意:Linux系统主要根据文件头信息来判断文件类型，扩展名并非决定因素
+ls -l显示详细的文件属性，其中 d 文件夹    - 普通文件    l 链接     b 块设备文件    c 字符设备文件
+注意: Linux下的可执行文件并不是由扩展名（例如 .exe ）决定的，而是由其可执行权限位决定。
+chmod 命令更改文件的权限，使用 chown 来更改文件的归属。
+普通用户的提示符是$，su命令是switch user，默认切换到root，然后提示符就变成#。sudo命令可以让当前用户暂时以root来运行命令。
+Linux下，名称中第一个字符为 . 的文件或者文件夹，系统默认情况下将它们隐藏起来。
+ubuntu默认安装的终端是Gnome-Termianl，反应比较慢，推荐使用urxvt，可以使用 sudo apt-get install rxvt-unicode 命令来安装。
+ctrl + c:  中止命令
+ctrl+s:冻结shell
+ctrl+q: 退出冻结
+ctrl+z: 挂起任务
+在命令的末尾加上一个 & 符号，表示背景任务，wget http://www.download.net/xxx/mp3 &
+; 将多个命令连结起来，则表示任务按顺序执行
+ && 将多个命令连结起来，则表示只有前面的命令执行成功，后面的命令才能得以执行
+如果一个命令中包含以 `` （Esc键下方的按键）括起来的子命令，那么子命令将被优先执行，执行结果被代入上一级命令继续执行
+Bg将挂起的任务背景运行
+Fg将背景任务调到前台执行jobs
+jobs命令查看所有背景任务
+>重定向符号
+>>作用与 > 基本相同，不同点在于， >> 以追加的方式，将命令的输出写入文件的末尾。
+<是从文件到命令的重定向，将文件的内容作为命令的输入。
+转义字符，也是\，叫做“脱字符”。也可以用在命令的后面用来换行执行。
+更强的shell, fish 能够自动补全命令参数 sudo apt-get install fish
+whereis 查看程序安装路径
+查看命令搜索路径 echo $PATH
+可以修改 /etc/environment 来修改程序默认搜索路径
+修改配置文件前先备份 sudo cp xxx xxx_`date +%y%m%d_%H:%M`
+Ubuntu系统中，软件通常以 deb 格式的包文件发布，它是一种预编译软件包
+dpkg -i | --install xxx.deb 安装deb软件包
+dpkg -I | -info xxx.deb 查看软件包信息
+dpkg -L xxx.deb 查看包内文件
+如果一个软件依赖关系过于复杂，使用 dpkg
+来安装它，并不是一个明智的选择，这个时候您就需要用到APT软件包管理系统
+apt-get install xxx 安装xxx
+apt-get remove xxx 卸载xxx
+apt-get update 更新软件信息数据库
+apt-cache search 搜索软件包
+说明：建议您经常使用 sudo apt-get update 命令来更新您的软件信息数据库
+修改 /etc/apt/sources.list 文件，使APT系统能够连接到 源。
+于各种意外，APT系统可能会出现问题，使用如下命令，尝试进行修复：apt-get -f install
+exit 到登录界面
+last 显示近期用户登录情况
+file. 检测文件类型
+dd 更强的拷贝
+linux最初不支持线程，后来有了用户级线程，最后才有了内核支持的线程 NPTL线程库
+linux进程有无效唤醒的问题

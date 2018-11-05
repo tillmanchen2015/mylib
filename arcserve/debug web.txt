@@ -1,0 +1,12 @@
+1. install infragistic 2011(in harvest\build_env)
+2. build mng_core.dll
+3. build other dll in ws_report.VS10
+4. copy App_LocalResource and chartimages from a host installed CS to WANSync\management\welcomeportal
+5. comment this line
+  internal xosoapapi.xosoapapi_c get_manager()
+        {
+            xosoapapi.xosoapapi_c mng = new xomngapi.xosoapapi.xosoapapi_c();
+            //mng.Url = manager_url;
+            return mng;
+        }
+6. debug x86

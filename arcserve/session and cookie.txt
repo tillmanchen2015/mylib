@@ -1,0 +1,2 @@
+Http is stateless.
+Session keeps state in server side, while cookie keep state in client side.

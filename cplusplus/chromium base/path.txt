@@ -1,0 +1,4 @@
+//当前exe路径
+FilePath p;
+PathService::Get(BasePathKey::DIR_EXE, &p);
+s = p.MaybeAsASCII();

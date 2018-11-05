@@ -1,0 +1,18 @@
+UDP has no send buffer only recieve buffer. TCP has both.
+
+Enable keep-alive package:
+int error = setsockopt(s, SOL_SOCKET, SO_KEEPALIVE,  (char *)&one, sizeof(one));
+
+Set nonblocking mode:
+windows->
+unsigned long val = 1;
+ioctlsocket(s, FIONBIO, &val);
+linux->
+int flags = fcntl( s, F_GETFL, 0);
+flags |= O_NONBLOCK;
+fcntl( s, F_SETFL, flags);
+
+Get local IP/Port:
+getsockname(s, (sockaddr*)&addr, &addrlen);
+loc_ip = ntohl(addr.sin_addr.s_addr);
+loc_port = ntohs(addr.sin_port);

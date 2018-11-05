@@ -1,0 +1,1 @@
+netsh winsock reset catalog和netsh int ip reset reset.log hit重置网络

@@ -1,0 +1,39 @@
+#include "base/files/file_util.h"
+
+base::ComputeDirectorySize()
+
+base::DeleteFile(FilePath,bool)	//delete file or directory
+base::Move(FilePath, FilePath) //file or dir
+
+base::CopeFile()	//only file
+base::CopeDirecory()
+base::ReplaceFile() //only file
+
+base::PathExists()
+base::DirectoryExists()
+
+base::ContentsEqual()
+base::TextContentEqual()
+
+base::ReadFileToString()
+
+base::GetPosixFilePermissions()
+
+base::IsDirectoryEmpty()
+
+base::GetTempDir()
+base::GetHomeDir()
+base::CreateTemporaryFile()
+base::CreateTemporaryFileInDir()
+
+base::CreateDirectoryAndGetError()
+
+base::GetFileSize()
+
+FILE* base::OpenFile()
+base::CloseFile()
+
+base::ReadFile()
+base::WriteFile()
+
+base::GetCurrentDirectory()

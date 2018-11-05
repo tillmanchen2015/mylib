@@ -1,0 +1,3 @@
+lea is similiar with mov
+lea move destination address to source 
+mov move destination data to source

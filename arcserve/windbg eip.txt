@@ -1,0 +1,2 @@
+it contains instructions that CPU will execute.
+ln eip-> check next instruction

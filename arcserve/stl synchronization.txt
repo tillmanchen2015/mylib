@@ -1,0 +1,27 @@
+pass parameter by reference : std::ref
+
+If a thread is not detached, it must be join. Otherwise an exception must pop up.
+ 
+std::lock prevent deadlock.
+
+two ways to use:
+std::mutex m1,m2;
+1. std::lock(m1, m2)
+   std::lock_guard lock1(m1, std::adopt_lock)
+   std::lock_guard lock2(m2, std::adopt_lock)
+2. std::unique_lock lock1(m1, std::defer_lock);
+   std::unique_lock lock2(m2, std::defer_lock);
+   std::lock(lock1, lock2)
+NOTE: Different parameters for std::lock!!!
+
+Spurious wakeup:
+Sometime a thread who wait for condition variable would be awoken even if it was not signaled by other thread! So we need a loop to prevent such a case.
+/* In any waiting thread: */
+while(!buf->full)
+	wait(&buf->cond, &buf->lock);
+
+/* In any other thread: */
+if(buf->n >= buf->size){
+	buf->full = 1;
+	signal(&buf->cond);
+}

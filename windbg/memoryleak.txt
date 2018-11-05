@@ -1,0 +1,7 @@
+1. gflag -i xxx.exe +ust : create user mode stack trace  database
+2. !heap -s : check all heaps. Find the leaked heap
+3. !heap -stat -h <HeapEntry> : check all blocks allocated by heap 
+4. !heap -flt s <ObjSize> : filter blocks according to a size
+5. !heap -p -a <address> : find stack to allocate
+6. db <address> : find some information
+7. u <address> : find some assembly information

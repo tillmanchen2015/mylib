@@ -1,0 +1,19 @@
+﻿rax rbx rcx rdx 
+rsi rdi 
+rbp rsp
+r8 r9 r10 r11 r12 r13 r14 r15
+
+Calling Conventions:
+1. The first four integer or pointer parameters are passed in the rcx, rdx, r8, and r9 registers.
+2. The first four floating-point parameters are passed in the first four SSE registers, xmm0-xmm3.
+3. The caller reserves space on the stack for arguments passed in registers. The called function can use this space to spill the contents of registers to the stack.
+4. Any additional arguments are passed on the stack.
+5. An integer or pointer return value is returned in the rax register, while a floating-point return value is returned in xmm0.
+6. rax, rcx, rdx, r8-r11 are volatile.
+7. rbx, rbp, rdi, rsi, r12-r15 are nonvolatile.
+8. The calling convention for C++ is very similar: the this pointer is passed as an implicit first parameter. The next three parameters are passed in registers, while the rest are passed on the stack.
+
+Conclusition:
+1. Only four registers are used to pass parameters. Others used stack.
+2. C++ this pointer is passed as firtst parameter.
+3. Return value is saved in rax.

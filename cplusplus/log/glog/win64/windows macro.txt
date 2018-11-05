@@ -1,0 +1,2 @@
+WIN32;_WINDOWS;GLOG_NO_ABBREVIATED_SEVERITIES;GOOGLE_GLOG_DLL_DECL=;
+see https://blog.csdn.net/sagittarius_warrior/article/details/77482087

@@ -1,0 +1,2 @@
+netstat -ano|findstr "8088"   -> find process ID who occupied port
+tasklist|findstr "12345"	-> find process name

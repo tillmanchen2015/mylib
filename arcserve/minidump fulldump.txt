@@ -1,0 +1,2 @@
+fulldump is a basic one. But minidump is best choice. It can vary in size from very small to very large.
+minidump may be larger than fulldump, if it uses .dump /ma

@@ -1,0 +1,7 @@
+      const_cast，字面上理解就是去const属性。
+
+　　static_cast，命名上理解是静态类型转换。如int转换成char。
+
+　　dynamic_cast，命名上理解是动态类型转换。如子类和父类之间的多态类型转换。
+
+　　reinterpreter_cast，仅仅重新解释类型，但没有进行二进制的转换。

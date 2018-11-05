@@ -1,0 +1,1 @@
+install-windowsfeature net-framework-features -source f:\sources\sxs

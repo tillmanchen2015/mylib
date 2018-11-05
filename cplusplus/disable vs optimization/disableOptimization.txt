@@ -1,0 +1,9 @@
+
+"C/C++ | General" -> "Debug Information Format" -> "Program Database (/Zi)" 
+"Linker | Debugging" -> "Generate Debug Info" -> "Optimize for debugging (/DEBUG)"
+
+"C/C++ | Optimization" -> "Optimization" -> "Disable"
+"C/C++ | Optimization" -> "Inline Function Expansion" -> "Disabled (/Ob0)".
+"C/C++ | Optimization" -> "Omit Frame Pointers" -> No
+
+"C/C++ | Code Generation" 

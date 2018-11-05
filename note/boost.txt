@@ -1,0 +1,88 @@
+时间戳: 
+boost::posix_time::second_clock::local_time()
+long long manager::GetCurrentStamp64()
+{
+	boost::posix_time::ptime epoch(boost::gregorian::date(1970, boost::gregorian::Jan, 1));
+	boost::posix_time::time_duration time_from_epoch =
+		boost::posix_time::second_clock::universal_time() - epoch;
+	return time_from_epoch.total_seconds();
+}
+
+编译期检查类是否有某些属性，:boost::type_traits, is_pod，is_absteact, is_polymorphic， is_same, is_basic_of
+改变全局的区域设置 : std::locale::global(std::locale("German"))
+或者std::setlocale(LC_ALL, "German");
+字符串大小写转换 boost::algorithm::to_upper_copy() ，boost::algorithm::to_upper() 
+是否为数字boost::algorithm::is_digit() 
+是否为大写boost::algorithm::is_upper()
+字符串切割boost::algorithm::split
+boost对于字符串的操作非常完备，几乎所有字符串操作都可以找到算法
+字符串处理函数都有忽略大小写的版本，在于函数第一个字母是i
+异步计时器 boost::asio::deadline_timer
+调用asio::io_service.run()方法的线程，执行异步操作!
+不要绑定多个线程到单个 I/O 服务，而是创建多个 I/O 服务。 然后每一个 I/O 服务使用一个线程。 如果 I/O 服务的数量与系统的处理器内核数量相匹配，则异步操作都可以在各自的内核上执行。
+boost::signal 类似于注册回调函数，高级的地方在于，一个信号可以关联多个函数，而且可以指定多个函数的执行顺序。
+托管共享内存: boost::interprocess::managed_shared_memory，好像比普通共享内存更强一点。
+将对象序列化为文本流boost::archive::text_oarchive
+float的有效数字是7位，指的是7位十进制，大约是1000多万，小于int的表示范围。
+double有16个有效数字，最大9007199254740992，是9000多万亿，远远大于32位int，大约是9000多T，所以用double表示文件长度绰绰有。
+线程本地存储:boost::thread_specific_ptr<bool> tls 。还是有用的，有些东西是需要在线程中只做一次的，比如std::srand()，不同的线程需要分别调用
+boost function 可以调用成员函数！
+boost lambda
+boost hash_combine
+bimap 双向map。注意tag的用法，可以代替first second
+比mutex更强的synchronized_value，可以绑定在一个变量上，也可以取出strict_lock_ptr，来保护一段代码。
+BOOST_SCOPE_EXIT 用来实现类似RAII功能，类似go中的defer。用在成员函数要加this_，不是this. 注意，BOOST_SCOPE_EXIT与函数返回值有冲突，返回值赋值的时候exit代码还没运行！
+asio::io_service要放在线程中执行run才能多线程执行！
+asio中域名解析、连接、发送、接受都可以异步！
+洗牌:std::array<int, 6> a{{0, 1, 2, 3, 4, 5}}  boost::random_shuffle(a);
+删除字符串中的字符: algorithm::erase_xx
+字符串连接，类似python algirithm::join，和split是反操作
+有些类型如果很难写，可以用decltype
+hash()可以计算任意类型的哈希值。自定义类需要重载hash_value，hash才可以操作
+boost
+改变全局的区域设置 : std::locale::global(std::locale("German"))
+或者std::setlocale(LC_ALL, "German");
+字符串大小写转换 boost::algorithm::to_upper_copy() ，boost::algorithm::to_upper() 
+是否为数字boost::algorithm::is_digit() 
+是否为大写boost::algorithm::is_upper()
+字符串切割boost::algorithm::split
+boost对于字符串的操作非常完备，几乎所有字符串操作都可以找到算法
+字符串处理函数都有忽略大小写的版本，在于函数第一个字母是i
+异步计时器 boost::asio::deadline_timer
+调用asio::io_service.run()方法的线程，执行异步操作!
+不要绑定多个线程到单个 I/O 服务，而是创建多个 I/O 服务。 然后每一个 I/O 服务使用一个线程。 如果 I/O 服务的数量与系统的处理器内核数量相匹配，则异步操作都可以在各自的内核上执行。
+boost::signal 类似于注册回调函数，高级的地方在于，一个信号可以关联多个函数，而且可以指定多个函数的执行顺序。
+托管共享内存: boost::interprocess::managed_shared_memory，好像比普通共享内存更强一点。
+将对象序列化为文本流boost::archive::text_oarchive
+float的有效数字是7位，指的是7位十进制，大约是1000多万，小于int的表示范围。
+double有16个有效数字，最大9007199254740992，是9000多万亿，远远大于32位int，大约是9000多T，所以用double表示文件长度绰绰有。
+线程本地存储:boost::thread_specific_ptr<bool> tls 。还是有用的，有些东西是需要在线程中只做一次的，比如std::srand()，不同的线程需要分别调用
+boost function 可以调用成员函数！
+boost lambda
+boost hash_combine
+bimap 双向map。注意tag的用法，可以代替first second
+比mutex更强的synchronized_value，可以绑定在一个变量上，也可以取出strict_lock_ptr，来保护一段代码。
+BOOST_SCOPE_EXIT 用来实现类似RAII功能，类似go中的defer。用在成员函数要加this_，不是this. 注意，BOOST_SCOPE_EXIT与函数返回值有冲突，返回值赋值的时候exit代码还没运行！
+asio::io_service要放在线程中执行run才能多线程执行！
+asio中域名解析、连接、发送、接受都可以异步！
+洗牌:std::array<int, 6> a{{0, 1, 2, 3, 4, 5}}  boost::random_shuffle(a);
+boost asio
+tcp同步写: socet writesome()，注意要用循环来调用writesome.这很不便利.asio write方法能够供一次性发送服务。
+类似的，接受也有sock readsome，以及asio read。还有一个asio read_until，能够读到一个特定字符。不过需要注意的是，最后的buff可能会包括特定字符后面的字符，需要应用自己区别。这里还有个技巧，对于\n这个delimiter，可以通过构造std ifstream，然后通过std getline来区分。
+异步写，好用的asio async_write()
+异步连接 ，async_connect()
+异步操作的w取消，sock.cancle(). 相应的回调函数会被调用，传入错误码io::error::operation_aborted
+asio io_service.run()是在做什么呢？我猜，它维护了一堆线程，根据需要调用回调函数。
+可扩展的buf:   asio_streambuf，可用于接收socket
+通过shutdown socket的发送部分，可以创造一个边界通知接受方，这是一个小技巧。
+服务器端: 主要的类是acceptor，它负责listen，负责async_accept，有了连接之后会调用异步函数，注意在这个异步函数里再一次调用async_accept
+ip::address::to_string()  从字符串得到ip地址
+ip::host_name() 主机名
+两种endpoint: 服务器一般是endpoint(协议，端口)，客户端一般是endpoint(地址，端口)
+error::operation_aborted 异步操作被关闭
+套接字本地端口local_endpoint()
+远程端口 remote_endpoint()
+异步io要注意缓冲区的生存期，可以用智能指针
+智能数组指针 shared_array
+asio读写用到的buffer必须是asio::buffer，可以用数组、字符串、pod的vector等来构造。
+asio可以和future结合起来使用，就不用回调函数。

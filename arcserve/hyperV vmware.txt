@@ -1,0 +1,11 @@
+add something in .vmx file.
+ 
+if winhyperv, change it to  windows8srv-64
+
+
+nce.enable = TRUE                                           
+hypervisor.cpuid.v0 = FALSE                                 
+featMask.vm.hv.capable ="Min:1"                            
+vhv.enable= TRUE 
+
+and then remove from inventory , register it again.

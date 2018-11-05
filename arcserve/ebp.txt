@@ -1,0 +1,7 @@
+at the beginning of a function, it's common to push ebp and move esp to ebp. So, there are some conclusions.
+
+ebp : parent ebp. 
+ebp+4 : return address
+ebp+8 : first parameter from parent function to push
+ebp+ 0xC : second parameter from parent function to push
+ebp - n : first local variable address( n is length of variable)

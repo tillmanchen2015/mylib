@@ -1,0 +1,12 @@
+Creating an Application Crash Dump
+
+If you experience application crashes you may be asked by support to create a crash dump file. Crash dumps are created automatically by Windows if the following registry key is present:
+
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps
+In order to help support troubleshoot your problem please do the following:
+
+Create the registry key LocalDumps if it is not present already.
+Reproduce the problem (i.e. make the application crash).
+Locate the crash dump file in %LOCALAPPDATA%\CrashDumps. Note that if the crashing application runs under the System account, that resolves to C:\Windows\System32\config\systemprofile\AppData\Local\CrashDumps.
+Send the crash dump file to support.
+This works on all versions of Windows beginning with Vista and Server 2008 (including Windows 7, Windows 8, Server 2012, etc.).

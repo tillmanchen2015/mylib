@@ -1,0 +1,1 @@
+You can add another NetBIOS name in the HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters section of the Windows registry by adding the OptionalNames string value. If three or more NetBIOS names are required, use the multi-string value with the same name.

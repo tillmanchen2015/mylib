@@ -1,0 +1,2 @@
+1. debug ws_man or ws_gui only in local host with VS2010. I failed to remote debug ws_man by replacing mng_core_com.dll and attaching ws_man
+2. VS2013 can remote debug ws_gui

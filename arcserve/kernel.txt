@@ -1,0 +1,7 @@
+build xomf8x64.sys with Win32.
+Restart master without digital signature. F8 to enter.
+DebugView to check kernel log. Capture Kernel. Enable verbose kernel output.
+
+KdPrint --- output message to kernel debugger.
+
+ZwOpenKey --- used for driver to obtain handle of registry

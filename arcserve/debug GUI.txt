@@ -1,0 +1,6 @@
+run vs as administrator.
+build ws_man
+cmd from bin dir. run command : ws_man as. It will start a ws_man service.
+build ws_gui
+////////////////////change username and password in main_wnd.cs. In InitSettingFromQueryParams.
+start gui project to debug

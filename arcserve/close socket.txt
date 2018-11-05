@@ -1,0 +1,7 @@
+close socket gracefully.
+What is gracefully?
+Don't close input stream and output stream simultaneously.
+Close input stream, then data in input buffer will be removed.
+Close output stream, data in output buffer will be sent to other end.
+
+use shutdown() to close socket gracefully

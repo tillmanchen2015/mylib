@@ -1,0 +1,23 @@
+using namespace google;
+int main(int argc, char* argv[])
+{
+	google::InitGoogleLogging("tsclient");
+	boost::filesystem::path glogDir(logdir);
+	glogDir.append("INFO_");
+	google::SetLogDestination(google::GLOG_INFO, glogDir.string().c_str());
+	//google::SetStderrLogging(google::GLOG_INFO);
+	google::SetLogFilenameExtension("log_");
+	
+	//FLAGS_colorlogtostderr = true; 
+	FLAGS_logbufsecs = 0;  
+	FLAGS_max_log_size = 10; 
+	FLAGS_stop_logging_if_full_disk = true; 
+	
+	char str[20] = "hello log!";
+	LOG(INFO) << str;
+	LOG(INFO) << "info test" << "hello log!";  //输出一个Info日志
+	LOG(WARNING) << "warning test";  //输出一个Warning日志
+	LOG(ERROR) << "error test";  //输出一个Error日志
+	google::ShutdownGoogleLogging();
+	return 0;
+}

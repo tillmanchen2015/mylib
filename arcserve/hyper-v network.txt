@@ -1,0 +1,1 @@
+if hyper-v is in ESX, its network doesn't work. You need to go to ESX Configuration tab. Edit vSwitch. Set Promiscuous Mode to Accept in Security lab.

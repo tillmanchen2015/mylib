@@ -1,0 +1,8 @@
+working set:
+a count of physical memory (RAM) rather than virtual address space. It represents the subset of the process's virtual address space that is valid, meaning that it can be referenced without incurring a page fault.
+
+commit size:
+the total amount of pageable virtual address space for which no backing store is assigned other than the pagefile. On systems with a pagefile, it may be thought of as the maximum potential pagefile usage. On systems with no pagefile, it is still counted, but all such virtual address space must remain in physical memory (RAM) at all times.
+
+
+So you can think of the working set as the amount of physical memory used, while the commit size indicates the amount of virtual memory used (sans things like DLLs or memory mapped files, which can be back by files other than the page file).

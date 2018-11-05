@@ -1,0 +1,25 @@
+void Fun()
+{
+    int * pInt = new int;
+    float * pFloat = new float;
+    BOOST_SCOPE_EXIT( (&pInt) (&pFloat) )//以引用的形式进行变量捕获
+    {
+        delete pInt;
+        pInt = nullptr;
+        delete pFloat;
+        pFloat = nullptr;
+        std::cout << __FUNCTION__ << std::endl;
+    }
+    BOOST_SCOPE_EXIT_END;
+    
+    
+    std::string str("abc");
+    BOOST_SCOPE_EXIT( str )    //以值传递的形式进行变量捕获
+    {
+        str = "123";
+        std::cout << __FUNCTION__ << std::endl;
+    }
+    BOOST_SCOPE_EXIT_END
+
+    return;
+}

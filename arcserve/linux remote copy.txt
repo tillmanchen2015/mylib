@@ -1,0 +1,1 @@
+scp file user@ip:/folder

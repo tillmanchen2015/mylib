@@ -1,0 +1,7 @@
+bu + symbol
+bp + address
+bm + pattern
+
+to find symbol to add breakpoint, you can use x cmd. for example, you want to add a breakpoint in constructor of a class called baseClass which is in test.exe. OK,
+x test!baseClass*
+Now you can see lots of symbol of baseClass class...

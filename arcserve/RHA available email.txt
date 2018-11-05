@@ -1,0 +1,3 @@
+pthcaq@sina.cn
+smtp.sina.com
+port: 587

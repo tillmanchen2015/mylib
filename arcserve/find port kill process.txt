@@ -1,0 +1,3 @@
+netstat -aon|findstr 12345
+tasklist|findstr 54321
+taskkill /f /PID 54321

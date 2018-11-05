@@ -1,0 +1,15 @@
+/V" /l*v c:\\log.txt"
+
+     /s /L1033 /V" /qn IS_XOSOFT_INSTALLED_BEFORE_INSTALL=0 IS_WANSYNC_INSTALLED_BEFORE_INSTALL=0 /lemo \"c:\log.txt\" ALLUSER=1 INSTALLLEVEL=100 ServiceUserName=administrator ServicePassword=caworld LOCALACCOUNT="No" XOLOGIN="administrator" XOPASSWORD="caworld" IS_NET_API_LOGON_USERNAME="" IS_NET_API_LOGON_USERNAMEXOLANG=1033 IS_PROXY=0 /norestart
+InstallShield 2010
+License Server   : USILAP12 
+License Port Server : 9987
+
+
+"C:\Program Files\CA\ARCserve RHA\Engine\install\CAARCserveRHAEngine.exe" /s /L1033 /V"/qn IS_XOSOFT_INSTALLED_BEFORE_INSTALL=0 IS_WANSYNC_INSTALLED_BEFORE_INSTALL=0 /l*v \"c:\log.txt\" ALLUSER=1 INSTALLLEVEL=100 ServiceUserName=administrator ServicePassword=caworld LOCALACCOUNT="No" XOLOGIN="administrator" XOPASSWORD="caworld" IS_NET_API_LOGON_USERNAME="administrator"  IS_NET_API_LOGON_USERNAMEXOLANG=1033 IS_PROXY=0 /norestart /debuglog c:\debug.log
+
+!!!!!!!But acctually my testing which succeeded looked like this.
+
+CAARCserveRHAEngine64.exe /s /v" /qn XOLOGIN=cat.com\administrator XOPASSWORD=caworld.2008 ServiceUserName=cat.com\administrator ServicePassword=caworld.2008 LOCALACCOUNT=No"
+
+CAARCserveRHAManager.exe /s /v" /qn XOLOGIN=cat.com\administrator XOPASSWORD=caworld.2008 ServiceUserName=cat.com\administrator ServicePassword=caworld.2008 LOCALACCOUNT=No"

@@ -1,0 +1,14 @@
+string number:
+string_number_conversion.h
+StringToInt()
+IntToString()
+HexStringToInt()
+
+string format:
+stringprintf.h
+std::string StringPrintf()
+
+//当前exe路径
+FilePath p;
+PathService::Get(BasePathKey::DIR_EXE, &p);
+s = p.MaybeAsASCII();

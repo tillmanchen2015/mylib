@@ -1,0 +1,3 @@
+linux mount windows shared folder:
+mkdir -p /mnt/winShare
+mount -t cifs -o username=arcserve/aiqi.chen,password=pwd  //ip/sharedfolder /mnt/winShare

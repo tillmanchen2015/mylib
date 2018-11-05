@@ -1,0 +1,10 @@
+send process: three-way handshaking
+A send SYN(SEQ:1000) to B
+B send SYN and ACK:1001 (SEQ:2000) to A
+A send ACK:2001(SEQ:1001) to B
+
+finish process: four-way handshaking
+A send FIN(SEQ:5000) to B
+B send ACK:5001(SEQ:7500) to A
+B send FIN and ACK:5001(SEQ:7501) to A
+A send ACK:7502(SEQ:5001) to B

@@ -1,0 +1,12 @@
+stack overflow hangs in the upper function.
+for example, 
+int a()
+{
+    b();
+    int c = 0;
+    int d = 0;
+}
+
+if stack hangs in int c=0, please check function b().
+
+Pay attention to alloca function, which veries from malloc, calloc, realloc. It applyies memory from stack not heap.

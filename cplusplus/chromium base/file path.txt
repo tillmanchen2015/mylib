@@ -1,0 +1,6 @@
+#include "base/files/file_path.h"
+
+base::FilePath::Extension()
+base::FilePath::BaseName() //include extension
+base::FilePath::RemoveExtension() //baseName without extionsion
+base::FilePath::IsParent(FilePath)

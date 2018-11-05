@@ -1,0 +1,2 @@
+1. SysInternalSuite->winobj->global??
+2. diskpart->list volume

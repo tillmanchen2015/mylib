@@ -1,0 +1,1 @@
+start ws_rep.exe with /W. It will be in a loop of one minutes to wait you to detach.

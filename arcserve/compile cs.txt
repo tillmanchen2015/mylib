@@ -1,0 +1,2 @@
+compiling cs need to register mng_core_com.dll
+regsvr32 mng_core_com.dll

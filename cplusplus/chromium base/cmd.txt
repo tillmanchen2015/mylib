@@ -1,0 +1,10 @@
+#include "base/command_line.h"
+#include "base/process/launch.h"
+
+	base::CommandLine cmd(base::FilePath("/bin/ls"));
+   cmd.AppendArg("-l");
+   cmd.AppendArg("/bin");
+    std::string output = "hellocat";
+    bool ret = base::GetAppOutputAndError(cmd, &output);
+    tfm::printfln("output: %s", output);
+    base::PlatformThread::Sleep(base::TimeDelta::FromHours(1));

@@ -1,0 +1,1 @@
+debug version engine didn't work in applicance. Cannot pass authentacation for virtual platform. It's strange. 

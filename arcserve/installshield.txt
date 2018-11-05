@@ -1,0 +1,4 @@
+Go to Installation Designer\Path Variables. Change DEVENV, OUTPUT, SRC, SRCBASE. Change their Environment to standard.  OUTPUT should be debug_File. 
+
+Copy Src\dev_CHS, dev_CHT,... to Src\dev.
+

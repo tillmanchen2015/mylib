@@ -1,0 +1,3 @@
+tcp doesn't have data boundary. udp has.
+
+for many sending, tcp can receive once, but udp must receive as same times as send.

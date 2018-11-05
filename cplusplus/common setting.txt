@@ -1,0 +1,10 @@
+common include:
+D:\src\3rdParty\boost\boost_1_62_0
+D:\src\3rdParty\opencv3.1\Windows\include
+
+common lib dir:
+D:\src\3rdParty\boost\boost_1_62_0\libs\x64
+D:\src\3rdParty\opencv3.1\Windows\libshare\x64\lib\Release
+
+common lib:
+opencv_world310.lib

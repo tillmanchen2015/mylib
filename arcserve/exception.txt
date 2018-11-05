@@ -1,0 +1,5 @@
+exception:
+CPU's exception
+hardware can raise exception
+windows raise exception by Win32::RaiseException
+Windows exception include c++ exception and CLR exception(.NET exception)

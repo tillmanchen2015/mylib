@@ -1,0 +1,16 @@
+
+header file: <memory>
+
+Four smart pointer:
+std::shared_ptr
+std::unique_ptr
+std::weak_ptr
+std::auto_ptr
+
+They are almost same when used in one pointer. The difference is when assigned to another pointer. 
+
+std::auto_ptr p1 = p2;     // p2 became null pointer. If you reference its function, crash. This is not recommended.
+std::unique_ptr p1 = p2;   // compile prompt error. Unless p2 is a temprory pointer. 
+std::shared_ptr p1 = p2;   // p2 and p1 are referenceing same object. Both are available.
+std::weak_ptr p3 = p2;     // weak_ptr is used as auxiliary tool for shared pointer. But it didn't increase shared reference count.
+

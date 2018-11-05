@@ -1,0 +1,2 @@
+Select rule type: Performance
+Select Performance Counters
